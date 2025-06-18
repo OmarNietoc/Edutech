@@ -45,6 +45,9 @@ public class UserService {
     }
 
     public void saveUser(User user) {
+        if (user == null) {
+            throw new IllegalArgumentException("El usuario no puede ser nulo.");
+        }
         userRepository.save(user);
     }
 
