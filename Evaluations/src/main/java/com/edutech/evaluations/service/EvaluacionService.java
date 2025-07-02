@@ -1,6 +1,6 @@
 package com.edutech.evaluations.service;
 
-import com.edutech.evaluations.entity.Evaluation;
+import com.edutech.evaluations.model.Evaluation;
 import java.util.List;
 
 public interface EvaluacionService {

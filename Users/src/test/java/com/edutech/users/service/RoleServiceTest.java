@@ -3,7 +3,6 @@ package com.edutech.users.service;
 import com.edutech.users.exception.ConflictException;
 import com.edutech.users.exception.ResourceNotFoundException;
 import com.edutech.users.model.Role;
-import com.edutech.users.model.User;
 import com.edutech.users.repository.RoleRepository;
 import com.edutech.users.repository.UserRepository;
 import org.junit.jupiter.api.Test;
@@ -175,5 +174,19 @@ class RoleServiceTest {
             roleService.updateRole(roleId, updatedDetails);
         });
         verify(roleRepository, never()).save(any());
+    }
+
+    @Test
+    void validateRoleByName_lanzaExcepcionCuandoYaExiste() {
+        String nombreDuplicado = "ADMIN";
+
+        when(roleRepository.existsByNameIgnoreCase(nombreDuplicado)).thenReturn(true);
+
+        ConflictException exception = assertThrows(
+                ConflictException.class,
+                () -> roleService.validateRoleByName(nombreDuplicado)
+        );
+
+        assertEquals("Ya existe un rol con ese nombre.", exception.getMessage());
     }
 }

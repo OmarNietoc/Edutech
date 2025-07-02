@@ -102,43 +102,6 @@ public class DataLoader implements CommandLineRunner {
             coupons.add(coupon);
         }
         coupons = couponRepository.saveAll(coupons);
-/*
-// Crear 21 inscripciones
-        List<Enrollment> enrollments = new ArrayList<>();
-        for (int i = 1; i <= 21; i++) {
-            Course selectedCourse = courses.get(i % courses.size());
 
-            // Buscar un cupón activo (si hay)
-            Coupon selectedCoupon = null;
-            for (Coupon c : coupons) {
-                if (c.isActive()) {
-                    selectedCoupon = c;
-                    break;
-                }
-            }
-
-            // Calcular precio final y desactivar cupón si se usó
-            BigDecimal basePrice = selectedCourse.getPrice();
-            BigDecimal discount = BigDecimal.ZERO;
-            if (selectedCoupon != null) {
-                discount = selectedCoupon.getDiscountAmount();
-                selectedCoupon.setActive(false); // desactivamos el cupón tras usarlo
-            }
-            BigDecimal finalPrice = basePrice.subtract(discount).max(BigDecimal.ZERO);
-
-            Enrollment enrollment = Enrollment.builder()
-                    .userId((long) i)
-                    .course(selectedCourse)
-                    .coupon(selectedCoupon)
-                    .finalPrice(finalPrice)
-                    .enrollmentDate(LocalDateTime.now().minusDays(i))
-                    .build();
-            enrollments.add(enrollment);
-        }
-
-// Guardar cambios
-        couponRepository.saveAll(coupons);
-        enrollmentRepository.saveAll(enrollments);
-*/
     }
 }

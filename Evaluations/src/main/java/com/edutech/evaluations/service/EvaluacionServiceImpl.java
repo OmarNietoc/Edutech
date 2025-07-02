@@ -1,6 +1,6 @@
 package com.edutech.evaluations.service;
 
-import com.edutech.evaluations.entity.Evaluation;
+import com.edutech.evaluations.model.Evaluation;
 import com.edutech.evaluations.exception.RecursoNoEncontradoException;
 import com.edutech.evaluations.repository.EvaluacionRepository;
 import org.springframework.stereotype.Service;

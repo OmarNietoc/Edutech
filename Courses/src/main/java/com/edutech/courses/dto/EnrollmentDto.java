@@ -1,9 +1,11 @@
 package com.edutech.courses.dto;
 
 import jakarta.validation.constraints.NotNull;
-import lombok.Data;
+import lombok.*;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class EnrollmentDto {
 
     @NotNull(message = "El userId no puede ser nulo")
@@ -14,5 +16,6 @@ public class EnrollmentDto {
 
     // Código de cupón opcional
     private String couponCode;
+
 
 }

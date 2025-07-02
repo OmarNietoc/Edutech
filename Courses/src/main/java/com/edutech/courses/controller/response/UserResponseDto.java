@@ -1,9 +1,11 @@
 package com.edutech.courses.controller.response;
 
 import com.edutech.courses.dto.RoleDto;
-import lombok.Data;
+import lombok.*;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserResponseDto {
     private Long id;
     private String name;

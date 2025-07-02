@@ -176,7 +176,13 @@
                 <configuration>
                     <excludes>
                         <exclude>**/response/*</exclude>
-                      </excludes>
+                        <exclude>**/config/*</exclude>
+                        <exclude>**/model/*</exclude>
+                        <exclude>**/repository/*</exclude>
+                        <exclude>**/*Application.class</exclude>
+                        <exclude>**/controller/*</exclude>
+                        <exclude>**/dto/*</exclude>
+                    </excludes>
                 </configuration>
 
                 <executions>

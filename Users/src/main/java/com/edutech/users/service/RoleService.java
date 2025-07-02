@@ -60,11 +60,10 @@ public class RoleService {
 
     public void updateRole(Long id, Role roleDetails) {
         Role existingRole = getRoleById(id);
-        if(validateRoleByName(roleDetails.getName())){
-            existingRole.setName(roleDetails.getName());
-            roleRepository.save(existingRole);
+        validateRoleByName(roleDetails.getName());
+        existingRole.setName(roleDetails.getName());
+        roleRepository.save(existingRole);
         }
 
     }
 
-}

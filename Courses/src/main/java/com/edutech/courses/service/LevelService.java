@@ -47,9 +47,8 @@ public class LevelService {
     public void createLevel(Level level) {
 
         try {
-            if(validateLevelByName(level.getName())){
-                levelRepository.save(level);
-            }
+            validateLevelByName(level.getName());
+            levelRepository.save(level);
         } catch (DataIntegrityViolationException ex) {
             throw new IllegalArgumentException("Ya existe un level con ese nombre.");
         }
@@ -59,11 +58,9 @@ public class LevelService {
     public void updateLevel(Long id, Level updatedLevel) {
         Level existingLevel = levelRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Level no encontrado: " + id));
-        if(validateLevelByName(updatedLevel.getName())){
-            existingLevel.setName(updatedLevel.getName());
-            levelRepository.save(existingLevel);
-        }
-
+        validateLevelByName(updatedLevel.getName());
+        existingLevel.setName(updatedLevel.getName());
+        levelRepository.save(existingLevel);
     }
 
     public void deleteLevel(Long id) {

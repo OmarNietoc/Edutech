@@ -1,7 +1,6 @@
 package com.edutech.users.service;
 
 import com.edutech.users.dto.UserDto;
-import com.edutech.users.exception.ResourceNotFoundException;
 import com.edutech.users.model.Role;
 import com.edutech.users.model.User;
 import com.edutech.users.repository.UserRepository;
@@ -10,6 +9,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import com.edutech.users.exception.ResourceNotFoundException;
 
 import java.util.Arrays;
 import java.util.List;

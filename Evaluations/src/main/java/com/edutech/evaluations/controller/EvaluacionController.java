@@ -1,6 +1,6 @@
 package com.edutech.evaluations.controller;
 
-import com.edutech.evaluations.entity.Evaluation;
+import com.edutech.evaluations.model.Evaluation;
 import com.edutech.evaluations.service.EvaluacionService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
