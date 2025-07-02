@@ -5,6 +5,12 @@ import com.edutech.users.dto.UserDto;
 import com.edutech.users.repository.RoleRepository;
 import com.edutech.users.service.RoleService;
 import com.edutech.users.service.UserService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.ArraySchema;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
 import jakarta.validation.Valid;
@@ -28,18 +34,36 @@ public class UserController {
 
     private final UserService userService;
 
-    //get para listar usuarios
+    @Operation(summary = "Listar todos los usuarios", description = "Retorna todos los usuarios registrados en la plataforma.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Usuarios listados correctamente",
+                    content = @Content(mediaType = "application/json",
+                            array = @ArraySchema(schema = @Schema(implementation = User.class)))),
+            @ApiResponse(responseCode = "500", description = "Error interno del servidor")
+    })
         @GetMapping
         public ResponseEntity<List<User>> getUsers() {
             return ResponseEntity.ok(userService.getAllUsers());
         }
 
+    @Operation(summary = "Obtener usuario por ID", description = "Retorna los detalles de un usuario específico.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Usuario encontrado correctamente",
+                    content = @Content(schema = @Schema(implementation = User.class))),
+            @ApiResponse(responseCode = "404", description = "Usuario no encontrado")
+    })
         @GetMapping("/{id}")
         public ResponseEntity<?> getUserById(@PathVariable Long id) {
             User user = userService.getUserById(id);
             return ResponseEntity.ok(user);
         }
 
+    @Operation(summary = "Agregar nuevo usuario", description = "Crea un nuevo usuario en la base de datos.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "201", description = "Usuario creado exitosamente",
+                    content = @Content(schema = @Schema(implementation = MessageResponse.class))),
+            @ApiResponse(responseCode = "400", description = "Datos inválidos enviados en la solicitud")
+    })
     @PostMapping("/add")
     public ResponseEntity<MessageResponse> addUser(@Valid @RequestBody UserDto userDto) {
             userService.createUser(userDto);
@@ -47,13 +71,25 @@ public class UserController {
                     .body(new MessageResponse("Usuario agregado exitosamente."));
     }
 
+    @Operation(summary = "Actualizar usuario por ID", description = "Actualiza la información de un usuario existente.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Usuario actualizado correctamente",
+                    content = @Content(schema = @Schema(implementation = MessageResponse.class))),
+            @ApiResponse(responseCode = "400", description = "Datos inválidos"),
+            @ApiResponse(responseCode = "404", description = "Usuario no encontrado")
+    })
     @PutMapping("/{id}")
     public ResponseEntity<MessageResponse> updateUser(@PathVariable Long id, @Valid @RequestBody UserDto userDetails) {
         userService.updateUser(id, userDetails);
         return ResponseEntity.ok(new MessageResponse("Usuario actualizado exitosamente."));
     }
 
-
+    @Operation(summary = "Eliminar usuario por ID", description = "Elimina un usuario específico de la base de datos.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Usuario eliminado correctamente",
+                    content = @Content(schema = @Schema(implementation = MessageResponse.class))),
+            @ApiResponse(responseCode = "404", description = "Usuario no encontrado")
+    })
         @DeleteMapping("/{id}")
         public ResponseEntity<MessageResponse> deleteUser(@PathVariable Long id) {
             userService.deleteUserById(id);

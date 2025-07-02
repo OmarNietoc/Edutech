@@ -1,11 +1,17 @@
 package com.edutech.users.dto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.*;
 import lombok.*;
+import org.hibernate.validator.constraints.ScriptAssert;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Schema(description = "DTO para la creación y actualización de usuarios")
 public class UserDto {
 
+    @Schema(description = "ID único del usuario", example = "1")
     @NotEmpty(message = "'name' no puede estar vacío")
     @Size(min = 4, max = 100, message = "'name' debe tener entre 4 y 100 caracteres")
     private String name;
