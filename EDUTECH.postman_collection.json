@@ -1,0 +1,1147 @@
+{
+	"info": {
+		"_postman_id": "aea9ce09-cd5f-48cb-8ded-8ff088a9885a",
+		"name": "EDUTECH",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44443023",
+		"_collection_link": "https://omarnieto.postman.co/workspace/1c91f1fe-029f-4118-87b3-f21db6213e9e/collection/44443023-aea9ce09-cd5f-48cb-8ded-8ff088a9885a?action=share&source=collection_link&creator=44443023"
+	},
+	"item": [
+		{
+			"name": "MicroserviceCourses",
+			"item": [
+				{
+					"name": "Courses",
+					"item": [
+						{
+							"name": "Get Courses",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8081/edutech/courses",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"edutech",
+										"courses"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Course",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8081/edutech/courses/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"edutech",
+										"courses",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Course",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": " {\r\n        \"title\": \"Java  POO\",\r\n        \"description\": \"Aprende Java desde cero con casos legales prácticos. Ideal para quienes quieren defender su código.\",\r\n        \"categoryId\": 1,\r\n        \"levelId\": 1,\r\n        \"instructorId\": 13,\r\n        \"price\": 49.99,\r\n        \"tags\": [\r\n            \"java\",\r\n            \"poo\"\r\n        ]\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8081/edutech/courses",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"edutech",
+										"courses"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Put Course",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": " {\r\n        \"title\": \"Python POO\",\r\n        \"description\": \"Aprende Python desde cero con casos legales prácticos. Ideal para quienes quieren defender su código.\",\r\n        \"categoryId\": 1,\r\n        \"levelId\": 1,\r\n        \"instructorId\": 12,\r\n        \"price\": 59.99,\r\n        \"tags\": [\r\n            \"python\",\r\n            \"poo\",\r\n            \"Legal\"\r\n        ]\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8081/edutech/courses/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"edutech",
+										"courses",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Course",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:8081/edutech/courses/99",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"edutech",
+										"courses",
+										"99"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Coupons",
+					"item": [
+						{
+							"name": "Get Coupons",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8081/edutech/courses/coupons",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"edutech",
+										"courses",
+										"coupons"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Coupons",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8081/edutech/courses/coupons/add?discountAmount=25",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"edutech",
+										"courses",
+										"coupons",
+										"add"
+									],
+									"query": [
+										{
+											"key": "discountAmount",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Activate/Deactivate Coupon",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "localhost:8081/edutech/courses/coupons/afb95d7a-2892-4e9c-ae03-8195746a9ec6/status?active=true",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"edutech",
+										"courses",
+										"coupons",
+										"afb95d7a-2892-4e9c-ae03-8195746a9ec6",
+										"status"
+									],
+									"query": [
+										{
+											"key": "active",
+											"value": "true"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Cupon",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "localhost:8081/edutech/courses/coupons/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"edutech",
+										"courses",
+										"coupons",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Enrollments",
+					"item": [
+						{
+							"name": "Add Enrollments",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userId\":3,\r\n    \"courseId\":1,\r\n    \"couponCode\":\"DESC01\"\r\n}\r\n\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8081/edutech/courses/enrollments/add",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"edutech",
+										"courses",
+										"enrollments",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Enrollments",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8081/edutech/courses/enrollments",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"edutech",
+										"courses",
+										"enrollments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Put Enrollment",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userId\":1,\r\n    \"courseId\":1,\r\n    \"couponCode\": null\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8081/edutech/courses/enrollments/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"edutech",
+										"courses",
+										"enrollments",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Patch Status Enrollment",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "localhost:8081/edutech/courses/enrollments/1/status?active=true",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"edutech",
+										"courses",
+										"enrollments",
+										"1",
+										"status"
+									],
+									"query": [
+										{
+											"key": "active",
+											"value": "true"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Enrollment",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userId\":1,\r\n    \"courseId\":1,\r\n    \"couponCode\": null\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8081/edutech/courses/enrollments/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"edutech",
+										"courses",
+										"enrollments",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Levels",
+					"item": [
+						{
+							"name": "Get Levels",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8081/edutech/courses/levels",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"edutech",
+										"courses",
+										"levels"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Level",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8081/edutech/courses/levels/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"edutech",
+										"courses",
+										"levels",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Level",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"name\": \"Profesional\"\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8081/edutech/courses/levels/add",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"edutech",
+										"courses",
+										"levels",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Put Level",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"name\": \"Principiante\"\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8081/edutech/courses/levels/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"edutech",
+										"courses",
+										"levels",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Level",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"name\": \"Principiante\"\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8081/edutech/courses/levels/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"edutech",
+										"courses",
+										"levels",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Category",
+					"item": [
+						{
+							"name": "Get Categories",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8081/edutech/courses/categories",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"edutech",
+										"courses",
+										"categories"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Category",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8081/edutech/courses/categories/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"edutech",
+										"courses",
+										"categories",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Post Category",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Desarrollo Personal\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8081/edutech/courses/categories/add",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"edutech",
+										"courses",
+										"categories",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Put Category",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Oratoria\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8081/edutech/courses/categories/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"edutech",
+										"courses",
+										"categories",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Category",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Oratoria\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8081/edutech/courses/categories/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"edutech",
+										"courses",
+										"categories",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "MicroservicePayments",
+			"item": [
+				{
+					"name": "Payments",
+					"item": [
+						{
+							"name": "Get Payments",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8084/edutech/payments",
+									"host": [
+										"localhost"
+									],
+									"port": "8084",
+									"path": [
+										"edutech",
+										"payments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Payment",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"enrollmentId\":1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8084/edutech/payments/add",
+									"host": [
+										"localhost"
+									],
+									"port": "8084",
+									"path": [
+										"edutech",
+										"payments",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Patch status",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"enrollmentId\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8084/edutech/payments/1/status/REJECTED",
+									"host": [
+										"localhost"
+									],
+									"port": "8084",
+									"path": [
+										"edutech",
+										"payments",
+										"1",
+										"status",
+										"REJECTED"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete status",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"enrollmentId\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8084/edutech/payments/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8084",
+									"path": [
+										"edutech",
+										"payments",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "MicroserviceUsers",
+			"item": [
+				{
+					"name": "Users",
+					"item": [
+						{
+							"name": "Get Users",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/edutech/users",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"edutech",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get User",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/edutech/users/12",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"edutech",
+										"users",
+										"12"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add User",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "\r\n    {\r\n        \"name\": \"Roberto Gomez Bolaños\",\r\n        \"email\": \"taxidriver@gmail.com\",\r\n        \"password\": \"admin123\",\r\n        \"role\": 2,\r\n        \"status\": 1\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/edutech/users/add",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"edutech",
+										"users",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete User",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "\r\n    {\r\n        \"name\": \"Rober DeNiro\",\r\n        \"email\": \"taxidriver@gmail.com\",\r\n        \"password\": \"admin123\",\r\n        \"role\": 2,\r\n        \"status\": 1\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/edutech/users/17",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"edutech",
+										"users",
+										"17"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Put User",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "\r\n    {\r\n        \"name\": \"Rober DeNiro\",\r\n        \"email\": \"taxidriver@gmail.com\",\r\n        \"password\": \"admin123\",\r\n        \"role\": 2,\r\n        \"status\": 1\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/edutech/users/17",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"edutech",
+										"users",
+										"17"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Roles",
+					"item": [
+						{
+							"name": "Get Roles",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/edutech/users/roles",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"edutech",
+										"users",
+										"roles"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Role",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/edutech/users/roles/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"edutech",
+										"users",
+										"roles",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Role",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "\r\n    {\r\n        \"name\": \"ROOT\"\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/edutech/users/roles/add",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"edutech",
+										"users",
+										"roles",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Put Role",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "\r\n    {\r\n        \"name\": \"ROOT\"\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/edutech/users/roles/2",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"edutech",
+										"users",
+										"roles",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Role",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "\r\n    {\r\n        \"name\": \"Rober DeNiro\",\r\n        \"email\": \"taxidriver@gmail.com\",\r\n        \"password\": \"admin123\",\r\n        \"role\": 2,\r\n        \"status\": 1\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/edutech/users/roles/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"edutech",
+										"users",
+										"roles",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "MicroserviceSoporte",
+			"item": [
+				{
+					"name": "Get Soportes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8082/edutech/soporte",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"edutech",
+								"soporte"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Soporte",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"descripcion\": \"Tengo problemas para acceder a mi cuenta\", \r\n  \"usuarioId\": 9,\r\n  \"prioridad\": \"media\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8082/edutech/soporte",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"edutech",
+								"soporte"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put Soporte",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"estado\":\"alta\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8082/edutech/soporte/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"edutech",
+								"soporte",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
