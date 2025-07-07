@@ -88,6 +88,6 @@ La arquitectura sigue principios de Domain-Driven Design (DDD). Cada microservic
 
 Esto permite escalar, probar y desplegar servicios de forma independiente.
 
-## 📄 Licencia
+## 📄 Licencias
 
 Proyecto desarrollado con fines académicos. Todos los derechos reservados © 2025.
