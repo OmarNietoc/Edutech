@@ -103,4 +103,10 @@ public class UserService {
         userRepository.save(user);
     }
 
+    public void updateUserStatus(Long id, Integer status) {
+        User user = getUserById(id);
+        user.setStatus(status);
+        userRepository.save(user);
+    }
+
 }

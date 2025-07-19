@@ -96,6 +96,22 @@ public class UserController {
             return ResponseEntity.ok(new MessageResponse("Usuario eliminado correctamente."));
         }
 
+    @Operation(summary = "Actualizar estado del usuario", description = "Actualiza el estado (activo/inactivo) de un usuario.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Estado del usuario actualizado correctamente",
+                    content = @Content(schema = @Schema(implementation = MessageResponse.class))),
+            @ApiResponse(responseCode = "400", description = "Estado inválido"),
+            @ApiResponse(responseCode = "404", description = "Usuario no encontrado")
+    })
+        @PatchMapping("/{id}/status")
+        public ResponseEntity<MessageResponse> updateUserStatus(@PathVariable Long id, @RequestParam Integer status) {
+            if (status < 0 || status > 1) {
+                return ResponseEntity.badRequest().body(new MessageResponse("El 'status' debe ser 1 o 0."));
+            }
+            userService.updateUserStatus(id, status);
+            return ResponseEntity.ok(new MessageResponse("Estado del usuario actualizado correctamente."));
+        }
+
 
 
 
